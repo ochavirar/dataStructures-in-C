@@ -32,7 +32,7 @@ void stack_push(TYPE data, STACK stack)
 
 /**
  * @brief 
- * Returns the top value in the stack as a value, as well as deleting that returned value from the stack
+ * Returns the top node in the stack as a value, as well as deleting the node in whic that returned value is storaged.
  * @param stack 
  * @return ** TYPE 
  */
@@ -63,7 +63,7 @@ BOOL stack_isEmpty(STACK stack)
 
 /**
  * @brief 
- * Uses other functions to destroy every element in the stack, as well as deleting the main contorl node
+ * Uses other functions to destroy every element in the stack, as well as deleting the main control node
  * @param stack 
  * @return ** void 
  */

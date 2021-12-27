@@ -15,7 +15,7 @@
 
 /**
  * @brief 
- * Function that usese void pointer to get a integer
+ * Function that uses void pointer to get a integer
  * @param n 
  * @return ** TYPE 
  */
@@ -28,7 +28,7 @@ TYPE int_create(int n)
 
 /**
  * @brief 
- * Function that usese void pointer to get a float
+ * Function that uses void pointer to get a float
  * @param n 
  * @return ** TYPE 
  */
@@ -41,7 +41,7 @@ TYPE float_create(float n)
 
 /**
  * @brief 
- * Function that usese void pointer to get a double
+ * Function that uses void pointer to get a double
  * @param n 
  * @return ** TYPE 
  */
@@ -54,7 +54,7 @@ TYPE double_create(double n)
 
 /**
  * @brief 
- * Function that usese void pointer to get a char
+ * Function that uses void pointer to get a char
  * @param n 
  * @return ** TYPE 
  */
@@ -67,7 +67,7 @@ TYPE char_create(char n)
 
 /**
  * @brief 
- * Function that usese void pointer to get a string
+ * Function that uses void pointer to get a string
  * @param n 
  * @return ** TYPE 
  */

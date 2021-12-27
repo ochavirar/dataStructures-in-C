@@ -2,7 +2,7 @@
  * @file datatypes.h
  * @author Omar Chavira (ochavirar@outlook.com)
  * @brief 
- * Datatypes to use void pointers as a methdo to store any kind of primitive withink a stack.
+ * Datatypes to use void pointers as a methdod to store any kind of primitive type within a stack.
  * @version 0.1
  * @date 2021-12-26
  * 
