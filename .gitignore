@@ -1,2 +1,5 @@
 #ignore all test files
 test.c
+
+#ignore all .exe files 
+*.exe
