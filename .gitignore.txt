@@ -1,1 +1,1 @@
-stack/test.c
+/stack/test.c
