@@ -21,7 +21,7 @@ struct STRQUEUENODE // Node for a stack
     struct STRQUEUENODE *next;
 };
 
-typedef struct STRQUEUENODE *QUEUENODE; // defined primitive for a stack
+typedef struct STRQUEUENODE *QUEUENODE; // defined primitive for a queue
 
 /**
  * @brief 
