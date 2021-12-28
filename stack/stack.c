@@ -23,7 +23,7 @@ STACK stack_create()
  */
 void stack_push(TYPE data, STACK stack)
 {
-    NODE newNode = malloc(sizeof(struct STRSTACKNODE));
+    STACKNODE newNode = malloc(sizeof(struct STRSTACKNODE));
     newNode->data = data;
     newNode->prev = stack->top;
     stack->top = newNode;
@@ -38,7 +38,7 @@ void stack_push(TYPE data, STACK stack)
  */
 TYPE stack_pop(STACK stack)
 {
-    NODE temporalNode = stack->top;
+    STACKNODE temporalNode = stack->top;
     TYPE returnValue = NULL;
     if(temporalNode != NULL)
     {

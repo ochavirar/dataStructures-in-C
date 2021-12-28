@@ -2,9 +2,9 @@
  * @file datatypes.h
  * @author Omar Chavira (ochavirar@outlook.com)
  * @brief 
- * Datatypes to use void pointers as a methdod to store any kind of primitive type within a stack.
+ * Datatypes to use void pointers as a methdod to store any kind of primitive type within a queue.
  * @version 0.1
- * @date 2021-12-26
+ * @date 2021-12-27
  * 
  * @copyright OCR Copyright (c) 2021
  * 
@@ -15,13 +15,13 @@
 typedef void *TYPE; // void pointer defined as TYPE
 typedef enum{FALSE, TRUE} BOOL; // Boolean definition as an enum
 
-struct STRSTACKNODE // Node for a stack
+struct STRQUEUENODE // Node for a stack
 {
     TYPE data; // Void pointer
-    struct STRSTACKNODE *prev;
+    struct STRQUEUENODE *next;
 };
 
-typedef struct STRSTACKNODE *STACKNODE; // defined primitive for a stack
+typedef struct STRQUEUENODE *QUEUENODE; // defined primitive for a stack
 
 /**
  * @brief 
