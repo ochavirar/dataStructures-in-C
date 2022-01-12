@@ -224,7 +224,7 @@ void SLList_deleteData(SLLIST list, int (*cmpFunc) (TYPE, TYPE), TYPE ref)
     }
     else
     {
-        printf("Data not deleted\n");
+        printf("Data not deleted (not found in list)\n");
     }
 }
 
@@ -276,4 +276,29 @@ BOOL SLList_isDataInList(SLLIST list, int (*cmpFunc) (TYPE, TYPE), TYPE ref)
         tmp = tmp->next;
     }
     return isInList;
+}
+
+/**
+ * @brief 
+ * This function returns the data in a simply linked list node. Returns NULL if the index does not exist.
+ * @param list 
+ * @param index 
+ * @return ** TYPE 
+ */
+TYPE SLList_getDataByIndex(SLLIST list, int index)
+{
+    SLLISTNODE tmp = list->head;
+    if(index <= SLList_getSize(list) && index >= 0) //If index exists
+    {
+        for(int i=0;i<index;i++) //Go through the list
+        {
+            tmp = tmp->next;
+        }
+        return tmp->data; 
+    }
+    else
+    {
+        printf("Out of bounds!\n"); // If the index does not exist
+        return NULL;
+    }
 }
