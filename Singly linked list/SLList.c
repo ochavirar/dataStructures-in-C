@@ -288,7 +288,7 @@ BOOL SLList_isDataInList(SLLIST list, int (*cmpFunc) (TYPE, TYPE), TYPE ref)
 TYPE SLList_getDataByIndex(SLLIST list, int index)
 {
     SLLISTNODE tmp = list->head;
-    if(index <= SLList_getSize(list) && index >= 0) //If index exists
+    if(index < SLList_getSize(list) && index >= 0) //If index exists
     {
         for(int i=0;i<index;i++) //Go through the list
         {
