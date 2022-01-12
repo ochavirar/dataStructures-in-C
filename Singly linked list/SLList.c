@@ -303,6 +303,15 @@ TYPE SLList_getDataByIndex(SLLIST list, int index)
     }
 }
 
+/**
+ * @brief 
+ * This function replaces the data within a node for a new data given by the user, as well as replacing it in the node 
+ * which is located in the provided index
+ * @param list 
+ * @param index 
+ * @param data 
+ * @return ** void 
+ */
 void SLList_replaceDataByIndex(SLLIST list, int index, TYPE data)
 {
     SLLISTNODE tmp = list->head;
@@ -320,6 +329,13 @@ void SLList_replaceDataByIndex(SLLIST list, int index, TYPE data)
     }
 }
 
+/**
+ * @brief 
+ * This function deletes a node based on an index which was provided by the user
+ * @param list 
+ * @param index 
+ * @return ** void 
+ */
 void SLList_deleteNodeByIndex(SLLIST list, int index)
 {
     SLLISTNODE tmp = list->head;
