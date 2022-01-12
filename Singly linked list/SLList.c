@@ -347,10 +347,21 @@ void SLList_deleteNodeByIndex(SLLIST list, int index)
         {
             tmp = tmp->next;
         }
-        tmp2 = tmp->next;
-        tmp->next = tmp2->next;
-        free(tmp2);
-        list->size--;
+        if(tmp == list->head)
+        {
+            SLList_deleteHead(list);
+        } 
+        else if (tmp->next == NULL)
+        {
+            SLList_deleteTail(list);
+        }
+        else
+        {
+            tmp2 = tmp->next;
+            tmp->next = tmp2->next;
+            free(tmp2);
+            list->size--;
+        }
     } 
     else
     {
