@@ -25,6 +25,7 @@ void SLList_deleteTail(SLLIST list);//Deletion
 void SLList_deleteData(SLLIST list, int (*comparisonFunction) (TYPE a, TYPE b), TYPE ref);//Deletion
 int SLList_getSize(SLLIST list);//Get size
 void SLList_delete(SLLIST list);//Deletion
+void SLList_replaceDataByIndex(SLLIST list, int index, TYPE data);//Replace data by a given index
 TYPE SLList_getHead(SLLIST list);//Check and get value without deletion
 TYPE SLList_getTail(SLLIST list);//Check and get value without deletion
 TYPE SLList_getDataByIndex(SLLIST list, int index); //Return data by an index given by the user
