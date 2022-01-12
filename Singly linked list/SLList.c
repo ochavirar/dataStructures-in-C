@@ -306,7 +306,7 @@ TYPE SLList_getDataByIndex(SLLIST list, int index)
 void SLList_replaceDataByIndex(SLLIST list, int index, TYPE data)
 {
     SLLISTNODE tmp = list->head;
-    if(index <= SLList_getSize(list) && index >= 0)
+    if(index < SLList_getSize(list) && index >= 0)
     {
         for(int i=0;i<index;i++)
         {
@@ -314,6 +314,28 @@ void SLList_replaceDataByIndex(SLLIST list, int index, TYPE data)
         }
         tmp->data = data;
     }
+    else
+    {
+        printf("Out of bounds!\n");
+    }
+}
+
+void SLList_deleteNodeByIndex(SLLIST list, int index)
+{
+    SLLISTNODE tmp = list->head;
+    SLLISTNODE tmp2;
+    if(index < SLList_getSize(list) && index >= 0)
+    {
+        index--;
+        for(int i=0;i<index;i++)
+        {
+            tmp = tmp->next;
+        }
+        tmp2 = tmp->next;
+        tmp->next = tmp2->next;
+        free(tmp2);
+        list->size--;
+    } 
     else
     {
         printf("Out of bounds!\n");
