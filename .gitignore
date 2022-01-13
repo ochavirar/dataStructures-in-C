@@ -3,3 +3,6 @@ test.c
 
 #ignore all .exe files 
 *.exe
+
+#ignore al .vscode folders
+.vscode/
