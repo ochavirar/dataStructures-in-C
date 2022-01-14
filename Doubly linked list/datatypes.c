@@ -1,3 +1,16 @@
+/**
+ * @file datatypes.c
+ * @author Omar Chavira (ochavirar@outlook.com)
+ * @brief 
+ * This file contains all the functions definition to store a value using pointers adn returning
+ * it to a void pointer type
+ * @version 0.1
+ * @date 2022-01-14
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ **/
+
 #include "datatypes.h"
 #include <stdlib.h>
 #include <string.h>
