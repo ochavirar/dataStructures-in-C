@@ -13,8 +13,8 @@
  */
 #include "datatypes.h"
 
-#ifndef CDDLIST_H_
-#define CDDLIST_H_
+#ifndef CDLLIST_H_
+#define CDLLIST_H_
 
 /**
  * @brief 
@@ -32,4 +32,4 @@ struct STRCIRCULARDOUBLYLINKEDLIST
  */
 typedef struct STRCIRCULARDOUBLYLINKEDLIST *CDLLIST;
 
-#endif //CDDLIST_H_
+#endif //CDLLIST_H_
