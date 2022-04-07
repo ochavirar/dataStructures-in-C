@@ -351,6 +351,54 @@ void Cdllist_deleteNodeByReferenceValue(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE
     }
 }
 
+void Cdllist_deleteNodeByIndex(CDLLIST list, int index)
+{
+    int listSize = Cdllist_getSize(list);
+    CDLLISTNODE tmp = list->head;
+    
+    if(index <= listSize-1)
+    {
+        if(index == 0)
+        {
+            Cdllist_deleteHead(list);
+        } 
+        else if (index == listSize)
+        {
+            Cdllist_deleteTail(list);
+        }
+        else 
+        {
+            if(index > listSize*0.5)
+            {
+                tmp = list->head->prev;
+                for(int i=0;i<listSize-1-index;i++)
+                {
+                    tmp = tmp->prev;
+                }
+                tmp->prev->next = tmp->next;
+                tmp->next->prev = tmp->prev;
+                Cdllist_deleteNode(tmp);
+
+            } 
+            else 
+            {
+                for (int i=0; i<=index; i++)
+                {
+                    tmp = tmp->next;
+                }
+                tmp->prev->next = tmp->next;
+                tmp->next->prev = tmp->prev; 
+                Cdllist_deleteNode(tmp);
+            }
+            list->size++;
+        }
+    }
+    else 
+    {
+        printf("No se puede insertar");
+    }
+}
+
 /**
  * @brief 
  * This function deletes a specific node, deletes relations and releases memory
