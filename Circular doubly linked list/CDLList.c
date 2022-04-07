@@ -190,6 +190,18 @@ void Cdllist_insertAfter(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, T
     }
 }
 
+/**
+ * @brief 
+ * This function inserts a node ina  given index within the list.
+ * If the index that was provided does not exists an error message will be displayed.
+ * If the index is within the limits, the function will take two paths, from start to finish or from finish to start.
+ * If the list is too big, the first half will be analyzed from finish to start because it will perform better.
+ * If the first half is where the index is located, the analysis will be from start to finish.
+ * @param list 
+ * @param data 
+ * @param index 
+ * @return ** void 
+ */
 void Cdllist_insertNodeByIndex(CDLLIST list, TYPE data, int index)
 {
     int listSize = Cdllist_getSize(list);
@@ -197,22 +209,22 @@ void Cdllist_insertNodeByIndex(CDLLIST list, TYPE data, int index)
     {
         if(index == 1)
         {
-            Cdllist_insertAtHead(list, data);
+            Cdllist_insertAtHead(list, data); // Reuse of functions
         } 
         else if (index == listSize-1)
         {
-            Cdllist_insertAtTail(list, data);
+            Cdllist_insertAtTail(list, data); //Reuse of function
         }
         else 
         {
-            CDLLISTNODE newNode = malloc(sizeof(struct STRCIRCULARDOUBLYLINKEDLIST));
-            CDLLISTNODE tmp;
+            CDLLISTNODE newNode = malloc(sizeof(struct STRCIRCULARDOUBLYLINKEDLIST)); //Node to store in memory
+            CDLLISTNODE tmp; //Guide node 
             if(index >= listSize-1*0.5)
             {
                 tmp = list->head->prev;
                 for(int i=0;i<listSize-1-index;i++)
                 {
-                    tmp = tmp->prev;
+                    tmp = tmp->prev; //Reverse
                 }
                 newNode->prev = tmp->prev;
                 tmp->prev->next = newNode;
@@ -224,7 +236,7 @@ void Cdllist_insertNodeByIndex(CDLLIST list, TYPE data, int index)
                 newNode = list->head;
                 for(int i=0;i<index;i++)
                 {
-                    tmp = tmp->next;
+                    tmp = tmp->next; //Straight direction 
                 }
                 newNode->prev = tmp->prev;
                 tmp->prev->next = newNode;
@@ -236,7 +248,7 @@ void Cdllist_insertNodeByIndex(CDLLIST list, TYPE data, int index)
     } 
     else 
     {
-        printf("There is no position to add this node")
+        printf("There is no position to add this node");
     }
 }
 
