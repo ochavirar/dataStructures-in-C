@@ -42,10 +42,11 @@ void Cdllist_insertNodeAtIndex(CDLLIST, TYPE, int); //Inserts a node in a given 
 void Cdllist_deleteTail(CDLLIST); //Deletes the tail node of the list
 void Cdllist_deleteNodeByReferenceValue(CDLLIST, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, TYPE ref); //Deletes a node with a reference value
 void Cdllist_deleteNodeByIndex(CDLLIST, int); //Deletes a node in a given position
-void Cdllist_deleteNode(CDLLSITNODE); //Frees a node from memory
+void Cdllist_deleteNode(CDLLISTNODE); //Frees a node from memory
 void Cdllist_destroy(CDLLIST); //Destroys full list
 void Cdllist_insertNodeByIndex(CDLLIST, TYPE, int); //Inserts a node in a specific position (if the position does not exists  an error message is returned)
 BOOL Cdllist_isEmpty(CDLLIST); //Returns a boolean value that indicates if the list has content or not
 int Cdllist_getSize(CDLLIST list); //Returns the list size
+
 
 #endif //CDLLIST_H_

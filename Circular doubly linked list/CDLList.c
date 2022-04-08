@@ -10,6 +10,7 @@
  * 
  **/
 #include "CDLList.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 #define UNARYLIST 1
@@ -51,10 +52,11 @@ void Cdllist_insertAtHead(CDLLIST list, TYPE data)
     }
     else 
     {
-        CDLLISTNODE tmp = list->head;
-        list->head->prev = tmp->prev;
-        list->head->next = tmp;
-        tmp->prev = list->head;
+        newNode->prev = list->head->prev;
+        newNode->prev->next = newNode;
+        list->head->prev = newNode;
+        newNode->next = list->head;
+        list->head = newNode;
     } 
     list->size++;
 }
@@ -409,6 +411,7 @@ void Cdllist_deleteNode(CDLLISTNODE toDelete)
 {
     free(toDelete);
 }
+
 
 /**
  * @brief 
