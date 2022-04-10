@@ -98,7 +98,7 @@ void Cdllist_insertAtTail(CDLLIST list, TYPE data)
  * @param ref 
  * @return ** void 
  */
-void Cdllist_insertBefore(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, TYPE ref)
+void Cdllist_insertBefore(CDLLIST list, int (*cmpFunc)(TYPE, TYPE), TYPE data, TYPE ref)
 {
     CDLLISTNODE tmp = list->head;
     
@@ -131,9 +131,7 @@ void Cdllist_insertBefore(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, 
             {
                 tmp = tmp->next;
             }
-        }while(tmp->next != list->head);
-        
-            
+        }while(tmp->next != list->head);     
     } 
     else 
     {
@@ -150,7 +148,7 @@ void Cdllist_insertBefore(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, 
  * @param ref 
  * @return ** void 
  */
-void Cdllist_insertAfter(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, TYPE ref)
+void Cdllist_insertAfter(CDLLIST list, int (*cmpFunc)(TYPE, TYPE), TYPE data, TYPE ref)
 {
     CDLLISTNODE tmp = list->head;
     
@@ -207,50 +205,51 @@ void Cdllist_insertAfter(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, T
 void Cdllist_insertNodeByIndex(CDLLIST list, TYPE data, int index)
 {
     int listSize = Cdllist_getSize(list);
-    if(index <= listSize-1)
+    if(index <= listSize)
     {
-        if(index == 1)
+        if(index == 0)
         {
             Cdllist_insertAtHead(list, data); // Reuse of functions
         } 
-        else if (index == listSize-1)
+        else if (index == listSize)
         {
             Cdllist_insertAtTail(list, data); //Reuse of function
         }
         else 
         {
             CDLLISTNODE newNode = malloc(sizeof(struct STRCIRCULARDOUBLYLINKEDLIST)); //Node to store in memory
+            newNode->data = data;
             CDLLISTNODE tmp; //Guide node 
-            if(index >= listSize-1*0.5)
+            if(index >= listSize*0.5)
             {
                 tmp = list->head->prev;
-                for(int i=0;i<listSize-1-index;i++)
+                for(int i=listSize;i>listSize-1-index;i--)
                 {
                     tmp = tmp->prev; //Reverse
                 }
-                newNode->prev = tmp->prev;
                 tmp->prev->next = newNode;
-                tmp->prev = newNode;
+                newNode->prev = tmp->prev;
                 newNode->next = tmp;
+                tmp->prev = newNode;
             } 
             else 
             {
-                newNode = list->head;
+                tmp = list->head;
                 for(int i=0;i<index;i++)
                 {
                     tmp = tmp->next; //Straight direction 
                 }
-                newNode->prev = tmp->prev;
                 tmp->prev->next = newNode;
-                tmp->prev = newNode;
+                newNode->prev = tmp->prev;
                 newNode->next = tmp;
+                tmp->prev = newNode;
             }
         }
         list->size++;
     } 
     else 
     {
-        printf("There is no position to add this node");
+        printf("There is no position to add this node\n");
     }
 }
 
@@ -321,7 +320,7 @@ void Cdllist_deleteTail(CDLLIST list)
  * @param ref 
  * @return ** void 
  */
-void Cdllist_deleteNodeByReferenceValue(CDLLIST list, BOOL (*cmpFunc)(TYPE, TYPE), TYPE data, TYPE ref)
+void Cdllist_deleteNodeByReferenceValue(CDLLIST list, int (*cmpFunc)(TYPE, TYPE), TYPE data, TYPE ref)
 {
     CDLLISTNODE tmp = list->head;
     if(!Cdllist_isEmpty(list))
@@ -449,3 +448,4 @@ void Cdllist_destroy(CDLLIST list)
     }
     free(list);
 }
+
